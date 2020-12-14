@@ -1,0 +1,64 @@
+name: Rust unit tests
+on:
+  - pull_request
+  - push
+jobs:
+  fmt:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest ]
+        rust: [ stable ]
+      fail-fast: false
+    name: Format code
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: ${{ matrix.rust }}
+          override: true
+          components: rustfmt, clippy
+
+      - name: Format code
+        run: cargo fmt
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply cargo fmt changes
+          branch: ${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    needs: fmt
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest, windows-latest, macOS-latest ]
+        rust: [ stable, nightly ]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: ${{ matrix.rust }}
+          override: true
+          components: rustfmt, clippy
+
+      - name: Run tests
+        run: cargo test --verbose
+
+      - name: Run benchmarks
+        run: cargo bench --verbose
+
+      - name: Build docs
+        run: cargo doc --verbose
