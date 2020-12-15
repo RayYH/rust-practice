@@ -1,7 +1,7 @@
 // Regular comments which are ignored by the compiler: // and /* */
 // Doc comments which are parsed into HTML library documentation: /// and //!
 
-pub fn simple_value() -> i32 {
+fn simple_value() -> i32 {
     let x = 5 + /* 90 + */ 5;
     return x;
 }

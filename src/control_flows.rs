@@ -1,5 +1,5 @@
 // if Expressions
-pub fn greater_than_five(number: i32) -> String {
+fn greater_than_five(number: i32) -> String {
     return if number > 5 {
         "number is greater than 5".parse().unwrap()
     } else {
@@ -8,7 +8,7 @@ pub fn greater_than_five(number: i32) -> String {
 }
 
 // Handling Multiple Conditions with else if
-pub fn is_divisible(number: i32) -> String {
+fn is_divisible(number: i32) -> String {
     return if number % 4 == 0 {
         "number is divisible by 4".parse().unwrap()
     } else if number % 3 == 0 {

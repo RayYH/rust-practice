@@ -1,4 +1,4 @@
-pub fn plus_one(x: i32) -> i32 {
+fn plus_one(x: i32) -> i32 {
     // variables are immutable only by default, we cannot use `x = x+1` statement
     // y has been modified by `mut` keyword, so y is mutable
     let mut y = x;
