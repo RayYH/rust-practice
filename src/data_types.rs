@@ -1,5 +1,5 @@
-// Rust is a statically typed language, which means that it must know the types of all
-// variables at compile time.
+// Rust is a statically typed language, which means that it
+// must know the types of all variables at compile time.
 #[cfg(test)]
 mod tests {
     // signed integer types start with i
@@ -41,7 +41,7 @@ mod tests {
         assert_eq!(64, v_u64);
         assert_eq!(128, v_u128);
         assert_eq!(64, v_usize);
-        // literals
+        // number literals
         let decimal = 98_222;
         let hex = 0xff;
         let octal = 0o77;
