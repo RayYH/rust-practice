@@ -1,5 +1,3 @@
-// Rust code uses snake case as the conventional style for function and variable names.
-
 fn my_echo(x: i32) -> i32 {
     return x;
 }
@@ -12,7 +10,7 @@ fn function_bodies() -> i32 {
     let x = 5;
     let y = {
         let x = 3;
-        x + 1 // this is expression, so y = 4
+        x + 1 // this is an expression, so y = 4
     };
     return x + y;
 }

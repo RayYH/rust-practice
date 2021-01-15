@@ -1,13 +1,12 @@
 fn plus_one(x: i32) -> i32 {
-    // variables are immutable only by default (without `mut` keyword)
-    // a variable is mutable fi it was modified by `mut` keyword
+    // by default variables are immutable
+    // a variable is mutable if it was modified by `mut` keyword
     let mut y = x;
     y = y + 1;
     return y;
 }
 
-// use `mut` with constants is not allowed
-// constants are always immutable
+// use `mut` with constants is not allowed, constants are always immutable
 const MAX_POINTS: u32 = 100_000;
 
 #[cfg(test)]
@@ -29,16 +28,19 @@ mod tests {
 
     #[test]
     fn test_shadowing() {
-        // By using `let` keyword, we can perform a few transformations
+        // by using `let` keyword, we can perform a few transformations
         // on a value but have the variable be immutable after those
-        // transformations have been completed.
+        // transformations have been completed
         let x = 5;
         assert_eq!(x, 5);
         let x = x + 1;
         assert_eq!(x, 6);
         let x = x * 2;
         assert_eq!(x, 12);
+    }
 
+    #[test]
+    fn test_change_value_typ() {
         // we’re effectively creating a new variable when
         // we use the `let` keyword again, we can change
         // the type of the value

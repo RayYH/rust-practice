@@ -1,4 +1,4 @@
-// Regular comments which are ignored by the compiler: // and /* */
+// Regular comments which are ignored by the compiler: `//` and `/* */`.
 // Doc comments which are parsed into HTML library documentation: /// and //!
 
 fn simple_value() -> i32 {

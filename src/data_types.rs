@@ -2,8 +2,7 @@
 // must know the types of all variables at compile time.
 #[cfg(test)]
 mod tests {
-    // signed integer types start with i
-    // unsigned integer types start with u
+    // signed integer types start with i, unsigned integer types start with u
     // Each signed variant can store numbers from -(2^(n-1)) to (2^(n-1))-1
     // Unsigned variants can store numbers from 0 to (2^n)-1
     // Length	Signed	Unsigned

@@ -1,6 +1,4 @@
-// define a struct
 struct User {
-    // fields
     username: String,
     email: String,
     sign_in_count: u64,
@@ -20,6 +18,7 @@ fn area(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }
 
+// To define the function within the context of Rectangle, we start an impl (implementation) block.
 impl Rectangle {
     fn area(&self) -> u32 {
         self.width * self.height
